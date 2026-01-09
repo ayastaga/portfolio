@@ -1,21 +1,33 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 
-const lerp = (a: any, b: any, n: any) => (1 - n) * a + n * b;
-const distance = (x1: any, y1: any, x2: any, y2: any) =>
+const lerp = (a: number, b: number, n: number) => (1 - n) * a + n * b;
+const distance = (x1: number, y1: number, x2: number, y2: number) =>
   Math.hypot(x2 - x1, y2 - y1);
+
+interface TrailImage {
+  id: number;
+  src: string;
+  startX: number;
+  startY: number;
+  endX: number;
+  endY: number;
+  zIndex: number;
+  width: number;
+  height: number;
+}
 
 export default function Hero() {
   const [currentCarouselImage, setCurrentCarouselImage] = useState(0);
-  const [trailImages, setTrailImages] = useState([]);
-  const heroContainerRef = useRef(null);
+  const [trailImages, setTrailImages] = useState<TrailImage[]>([]);
+  const heroContainerRef = useRef<HTMLDivElement | null>(null);
 
   const mousePosRef = useRef({ x: 0, y: 0 });
   const lastMousePosRef = useRef({ x: 0, y: 0 });
   const cachMousePosRef = useRef({ x: 0, y: 0 });
   const imgPositionRef = useRef(0);
   const zIndexRef = useRef(1);
-  const animationFrameRef = useRef(null);
+  const animationFrameRef = useRef<number | null>(null);
   const isMouseInsideRef = useRef(false);
 
   const carouselImages = [
@@ -61,7 +73,7 @@ export default function Hero() {
 
   // Mouse tracking - only within Hero container
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (!heroContainerRef.current) return;
 
       const rect = heroContainerRef.current.getBoundingClientRect();
@@ -197,6 +209,17 @@ export default function Hero() {
   );
 }
 
+interface TrailImageProps {
+  src: string;
+  startX: number;
+  startY: number;
+  endX: number;
+  endY: number;
+  zIndex: number;
+  width: number;
+  height: number;
+}
+
 function TrailImage({
   src,
   startX,
@@ -206,8 +229,8 @@ function TrailImage({
   zIndex,
   width,
   height,
-}) {
-  const imgRef = useRef(null);
+}: TrailImageProps) {
+  const imgRef = useRef<HTMLImageElement | null>(null);
 
   useEffect(() => {
     const img = imgRef.current;
@@ -220,11 +243,13 @@ function TrailImage({
 
     img.style.opacity = "1";
     img.style.transform = `translate(${initialX}px, ${initialY}px) scale(1)`;
-    img.style.zIndex = zIndex;
+    img.style.zIndex = zIndex.toString();
 
     requestAnimationFrame(() => {
-      img.style.transition = "transform 2s cubic-bezier(0.16, 1, 0.3, 1)";
-      img.style.transform = `translate(${finalX}px, ${finalY}px)`;
+      if (img) {
+        img.style.transition = "transform 2s cubic-bezier(0.16, 1, 0.3, 1)";
+        img.style.transform = `translate(${finalX}px, ${finalY}px)`;
+      }
     });
   }, [startX, startY, endX, endY, zIndex, width, height]);
 

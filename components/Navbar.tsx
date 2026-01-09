@@ -6,9 +6,14 @@ import { ScrambleTextPlugin } from "gsap/ScrambleTextPlugin";
 
 gsap.registerPlugin(TextPlugin, ScrambleTextPlugin);
 
-const ShuffleText = ({ text, isHovered }) => {
-  const textRef = useRef(null);
-  const tweenRef = useRef(null);
+interface ShuffleTextProps {
+  text: string;
+  isHovered: boolean;
+}
+
+const ShuffleText = ({ text, isHovered }: ShuffleTextProps) => {
+  const textRef = useRef<HTMLSpanElement | null>(null);
+  const tweenRef = useRef<gsap.core.Tween | null>(null);
 
   useEffect(() => {
     if (!textRef.current) return;
@@ -30,14 +35,22 @@ const ShuffleText = ({ text, isHovered }) => {
       });
     } else {
       // Reset to original text immediately
-      textRef.current.textContent = text;
+      if (textRef.current) {
+        textRef.current.textContent = text;
+      }
     }
   }, [isHovered, text]);
 
   return <span ref={textRef}>{text}</span>;
 };
 
-const NavLink = ({ href, children, isActive = false }) => {
+interface NavLinkProps {
+  href: string;
+  children: string;
+  isActive?: boolean;
+}
+
+const NavLink = ({ href, children, isActive = false }: NavLinkProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -54,7 +67,12 @@ const NavLink = ({ href, children, isActive = false }) => {
   );
 };
 
-const SocialLink = ({ href, children }) => {
+interface SocialLinkProps {
+  href: string;
+  children: string;
+}
+
+const SocialLink = ({ href, children }: SocialLinkProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -77,14 +95,13 @@ export default function Navbar() {
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const options = {
+      const timeString = now.toLocaleTimeString("en-US", {
         timeZone: "America/New_York",
         hour: "2-digit",
         minute: "2-digit",
         second: "2-digit",
         hour12: true,
-      };
-      const timeString = now.toLocaleTimeString("en-US", options);
+      });
       setCurrentTime(timeString);
     };
 

@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Baskervville } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
+import GlobalMouseTracker from "@/components/mouse-tracker";
+import Navbar from "@/components/Navbar";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -34,7 +36,10 @@ export default function RootLayout({
       <body
         className={`${instrumentSerif.variable} ${ppMontreal.variable} ${baskerville.variable} antialiased`}
       >
-        {children}
+        <GlobalMouseTracker>
+          <Navbar />
+          {children}
+        </GlobalMouseTracker>
       </body>
     </html>
   );

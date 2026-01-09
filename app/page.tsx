@@ -1,8 +1,9 @@
+import Hero from "@/components/Hero";
+import About from "@/components/About";
 export default function Home() {
   return (
     <div>
-      hello
-      <p className="font-instrumentserif text-9xl">hello</p>
+      <Hero />
     </div>
   );
 }

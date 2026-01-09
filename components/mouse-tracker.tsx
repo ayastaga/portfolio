@@ -11,12 +11,14 @@ interface CursorDotProps {
   position: TooltipPosition;
   visible: boolean;
   isOnLink: boolean;
+  isClicking: boolean;
 }
 
 const CursorDot: React.FC<CursorDotProps> = ({
   position,
   visible,
   isOnLink,
+  isClicking,
 }) => {
   const [positionX, setPositionX] = useState(position.left);
   const [positionY, setPositionY] = useState(position.top);
@@ -51,15 +53,16 @@ const CursorDot: React.FC<CursorDotProps> = ({
         animate={{
           width: isOnLink ? "32px" : "12px",
           height: isOnLink ? "32px" : "12px",
-          opacity: isOnLink ? 0.4 : 1,
+          opacity: isClicking ? 1 : isOnLink ? 0.4 : 1,
+          background: isClicking ? "#ff5733" : "#ff5733",
+          scale: isClicking ? 0.8 : 1,
         }}
         transition={{
-          duration: 0.3,
+          duration: 0.15,
           ease: [0.4, 0.0, 0.2, 1],
         }}
         style={{
           borderRadius: "999px",
-          background: "linear-gradient(135deg, #000000 0%, #764ba2 100%)",
           pointerEvents: "none",
         }}
       />
@@ -77,6 +80,7 @@ const GlobalMouseTracker: React.FC<{ children: React.ReactNode }> = ({
   });
   const [visible, setVisible] = useState(false);
   const [isOnLink, setIsOnLink] = useState(false);
+  const [isClicking, setIsClicking] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -93,19 +97,36 @@ const GlobalMouseTracker: React.FC<{ children: React.ReactNode }> = ({
       setVisible(false);
     };
 
+    const handleMouseDown = () => {
+      setIsClicking(true);
+    };
+
+    const handleMouseUp = () => {
+      setIsClicking(false);
+    };
+
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
+    document.addEventListener("mousedown", handleMouseDown);
+    document.addEventListener("mouseup", handleMouseUp);
 
     return () => {
       document.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);
+      document.removeEventListener("mousedown", handleMouseDown);
+      document.removeEventListener("mouseup", handleMouseUp);
     };
   }, []);
 
   return (
     <>
       {children}
-      <CursorDot position={position} visible={visible} isOnLink={isOnLink} />
+      <CursorDot
+        position={position}
+        visible={visible}
+        isOnLink={isOnLink}
+        isClicking={isClicking}
+      />
     </>
   );
 };

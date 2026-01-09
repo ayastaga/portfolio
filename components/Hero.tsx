@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 
 const lerp = (a: number, b: number, n: number) => (1 - n) * a + n * b;
 const distance = (x1: number, y1: number, x2: number, y2: number) =>
@@ -32,33 +33,33 @@ export default function Hero() {
 
   const carouselImages = [
     {
-      src: "https://framerusercontent.com/images/9IrnqqHDGkmjwVpO2gXJEbmzw.webp",
+      src: "/photo1.png",
       alt: "Anima Living - Website",
     },
     {
-      src: "https://framerusercontent.com/images/ofNaiar0bc46xwVZM81rI8VXY.webp",
+      src: "/photo2.png",
       alt: "",
     },
     {
-      src: "https://framerusercontent.com/images/hMPfPz4iRpvRUPKPnGlcOZd3Dw8.webp",
+      src: "/photo3.png",
       alt: "Montara",
     },
     {
-      src: "https://framerusercontent.com/images/4rsUkom5pHxkWnsQQyMEIDlcf9Y.webp",
+      src: "/photo4.png",
       alt: "",
     },
     {
-      src: "https://framerusercontent.com/images/HryqSRkpOCZBVmcFknsqqNX59ZQ.webp",
+      src: "/photo5.png",
       alt: "",
     },
   ];
 
   const trailImageSources = [
-    "https://framerusercontent.com/images/9IrnqqHDGkmjwVpO2gXJEbmzw.webp",
-    "https://framerusercontent.com/images/ofNaiar0bc46xwVZM81rI8VXY.webp",
-    "https://framerusercontent.com/images/hMPfPz4iRpvRUPKPnGlcOZd3Dw8.webp",
-    "https://framerusercontent.com/images/4rsUkom5pHxkWnsQQyMEIDlcf9Y.webp",
-    "https://framerusercontent.com/images/HryqSRkpOCZBVmcFknsqqNX59ZQ.webp",
+    "/photo1.png",
+    "/photo2.png",
+    "/photo3.png",
+    "/photo4.png",
+    "/photo5.png",
   ];
 
   const imageWidths = [180, 220, 160, 200, 190];
@@ -177,7 +178,10 @@ export default function Hero() {
   }, []);
 
   return (
-    <div ref={heroContainerRef} className="relative h-screen overflow-hidden">
+    <div
+      ref={heroContainerRef}
+      className="items-center relative overflow-hidden"
+    >
       <div className="absolute inset-0 pointer-events-none z-">
         {trailImages.map((img) => (
           <TrailImage
@@ -202,7 +206,7 @@ export default function Hero() {
             fontSize: "clamp(48px, 40vw, 500px)",
           }}
         >
-          agastya
+          aga<span className="bg-custom text-white">stya</span>
         </span>
       </div>
     </div>

@@ -18,5 +18,7 @@
     "lib": "@/lib",
     "hooks": "@/hooks"
   },
-  "registries": {}
+  "registries": {
+    "@shadcndesign": "https://shadcndesign-free.vercel.app/r/{name}.json"
+  }
 }

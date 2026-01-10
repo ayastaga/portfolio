@@ -24,7 +24,7 @@ const ppMontreal = localFont({
 
 export const metadata: Metadata = {
   title: "Agastya Sharma",
-  description: "The personal portfolio of Agastya Sharma",
+  description: "Personal Portfolio of Agastya Sharma",
 };
 
 export default function RootLayout({

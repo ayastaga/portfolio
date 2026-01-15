@@ -5,6 +5,7 @@ import "./globals.css";
 import GlobalMouseTracker from "@/components/mouse-tracker";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import { TransitionProvider } from "@/components/TransitionProvider";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -13,8 +14,9 @@ const instrumentSerif = Instrument_Serif({
 });
 
 const baskerville = Baskervville({
-  variable: "--font-baskerville",
+  weight: "400",
   subsets: ["latin"],
+  variable: "--font-baskerville",
 });
 
 const ppMontreal = localFont({
@@ -33,14 +35,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en">
       <body
-        className={`${instrumentSerif.variable} ${ppMontreal.variable} ${baskerville.variable} antialiased h-full flex flex-col`}
+        className={`${instrumentSerif.variable} ${baskerville.variable} ${ppMontreal.variable} antialiased`}
       >
         <GlobalMouseTracker>
-          <Navbar />
-          <main className="flex-grow mb-20">{children}</main>
-          <Footer />
+          <TransitionProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </TransitionProvider>
         </GlobalMouseTracker>
       </body>
     </html>

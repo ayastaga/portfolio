@@ -251,7 +251,7 @@ function TrailImage({
 
     requestAnimationFrame(() => {
       if (img) {
-        img.style.transition = "transform 1s cubic-bezier(0.16, 1, 0.3, 1)";
+        img.style.transition = "transform cubic-bezier(0.16, 1, 0.3, 1)";
         img.style.transform = `translate(${finalX}px, ${finalY}px)`;
       }
     });

@@ -33,33 +33,33 @@ export default function Home() {
 
   const carouselImages = [
     {
-      src: "/photo1.png",
+      src: "/photo1.jpg",
       alt: "Anima Living - Website",
     },
     {
-      src: "/photo2.png",
+      src: "/photo2.jpg",
       alt: "",
     },
     {
-      src: "/photo3.png",
+      src: "/photo3.jpg",
       alt: "Montara",
     },
     {
-      src: "/photo4.png",
+      src: "/photo4.jpg",
       alt: "",
     },
     {
-      src: "/photo5.png",
+      src: "/photo5.jpg",
       alt: "",
     },
   ];
 
   const trailImageSources = [
-    "/photo1.png",
-    "/photo2.png",
-    "/photo3.png",
-    "/photo4.png",
-    "/photo5.png",
+    "/photo1.jpg",
+    "/photo2.jpg",
+    "/photo3.jpg",
+    "/photo4.jpg",
+    "/photo5.jpg",
   ];
 
   const imageWidths = [180, 220, 160, 200, 190];
@@ -206,7 +206,7 @@ export default function Home() {
             fontSize: "clamp(48px, 40vw, 500px)",
           }}
         >
-          aga<span className="bg-custom text-white">stya</span>
+          agastya
         </span>
       </div>
     </div>

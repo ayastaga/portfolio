@@ -54,7 +54,7 @@ const CursorDot: React.FC<CursorDotProps> = ({
           width: isOnLink ? "32px" : "12px",
           height: isOnLink ? "32px" : "12px",
           opacity: isClicking ? 1 : isOnLink ? 0.4 : 1,
-          background: isClicking ? "#ff5733" : "#ff5733",
+          background: isClicking ? "#0c6ff1" : "#0c6ff1",
           scale: isClicking ? 0.8 : 1,
         }}
         transition={{

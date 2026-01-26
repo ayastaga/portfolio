@@ -274,7 +274,7 @@ export default function Home() {
           ref={aboutTextRef}
           className="max-w-3xl text-xl md:text-3xl lg:text-4xl"
         >
-          I'm a 1st year CS student @ the University of Waterloo. Also a
+          I'm a 1st year CS student @ the University of Waterloo. I'm a
           full-stack developer & product designer based in Toronto.
         </p>
         <Link

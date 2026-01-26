@@ -72,7 +72,7 @@
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
-  --custom: #0c6ff1;
+  --custom: #ef6000;
   --sidebar: oklch(0.985 0 0);
   --sidebar-foreground: oklch(0.145 0 0);
   --sidebar-primary: oklch(0.205 0 0);
@@ -107,7 +107,7 @@
   --chart-3: oklch(0.769 0.188 70.08);
   --chart-4: oklch(0.627 0.265 303.9);
   --chart-5: oklch(0.645 0.246 16.439);
-  --custom: #0c6ff1;
+  --custom: #ef6000;
   --sidebar: oklch(0.205 0 0);
   --sidebar-foreground: oklch(0.985 0 0);
   --sidebar-primary: oklch(0.488 0.243 264.376);
@@ -125,9 +125,7 @@
   body {
     @apply bg-background text-foreground;
   }
-  button {
-    cursor: pointer;
-  }
+
   .heading-xl {
     font-family: var(--font-sans);
     font-size: 3rem;
@@ -176,12 +174,8 @@
   }
 }
 
-* {
-  cursor: none;
-}
-
 ::selection {
-  background-color: #0c6ff1; /* Your desired highlight color */
+  background-color: #ef6000; /* Your desired highlight color */
   color: #ffffff; /* Your desired text color */
 }
 
@@ -220,8 +214,4 @@
   .section-title-gap-sm {
     gap: 1rem;
   }
-}
-
-a:hover {
-  color: #0c6ff1;
 }

@@ -54,7 +54,7 @@ const CursorDot: React.FC<CursorDotProps> = ({
           width: isOnLink ? "32px" : "12px",
           height: isOnLink ? "32px" : "12px",
           opacity: isClicking ? 1 : isOnLink ? 0.4 : 1,
-          background: isClicking ? "#0c6ff1" : "#0c6ff1",
+          background: isClicking ? "#ef6000" : "#ef6000",
           scale: isClicking ? 0.8 : 1,
         }}
         transition={{
@@ -89,7 +89,7 @@ const GlobalMouseTracker: React.FC<{ children: React.ReactNode }> = ({
 
       // Check if hovering over a link
       const target = e.target as HTMLElement;
-      const link = target.closest("a");
+      const link = target.closest("a") || target.closest("button");
       setIsOnLink(!!link);
     };
 

@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 import { Instrument_Serif, Baskervville } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
-import GlobalMouseTracker from "@/components/mouse-tracker";
+
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { TransitionProvider } from "@/components/TransitionProvider";
+import LenisProvider from "@/components/LenisProvider";
+import GlobalMouseTracker from "@/components/mouse-tracker";
 
 const instrumentSerif = Instrument_Serif({
   weight: "400",
@@ -31,20 +33,22 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body
         className={`${instrumentSerif.variable} ${baskerville.variable} ${ppMontreal.variable} antialiased`}
       >
         <GlobalMouseTracker>
-          <TransitionProvider>
-            <Navbar />
-            {children}
-            <Footer />
-          </TransitionProvider>
+          <LenisProvider>
+            <TransitionProvider>
+              <Navbar />
+              {children}
+              <Footer />
+            </TransitionProvider>
+          </LenisProvider>
         </GlobalMouseTracker>
       </body>
     </html>

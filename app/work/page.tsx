@@ -1,18 +1,13 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import {
-  Card,
-  CardHeader,
-  CardContent,
-  CardTitle,
-  CardDescription,
-} from "@/components/ui/card";
+
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ArrowUpRight } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -305,13 +300,13 @@ export default function WorkComponent() {
               <thead>
                 <tr className="border-b border-foreground/10 uppercase text-gray-400">
                   <th className="px-0 py-3 text-left font-normal text-sm">
-                    Project
+                    Company
                   </th>
                   <th className="px-0 py-3 text-left font-normal text-sm">
-                    Category
+                    Title
                   </th>
                   <th className="px-0 py-3 text-left font-normal text-sm">
-                    Client
+                    Location
                   </th>
                   <th className="px-0 py-3 text-left font-normal text-sm">
                     Year
@@ -325,20 +320,28 @@ export default function WorkComponent() {
                   }}
                   className="border-b border-foreground/10 transition-all duration-200 hover:bg-black hover:text-white group cursor-pointer"
                 >
-                  <td className="px-0 py-4 align-top group-hover:translate-x-5 transition-transform duration-200">
+                  <td className="px-0 py-4 align-top transition-transform duration-200 group-hover:translate-x-5">
                     <Link
                       href="https://sylphiaconsulting.com/"
-                      className="hover:text-custom w-fit text-base"
                       target="_blank"
+                      className="
+                      inline-flex items-center gap-1
+                      whitespace-nowrap
+                      w-fit
+                      text-base
+                      hover:text-custom
+                    "
                     >
                       Sylphia Consulting Inc.
+                      <ArrowUpRight className="shrink-0" />
                     </Link>
                   </td>
+
                   <td className="px-0 py-4 align-top group-hover:translate-x-5 transition-transform duration-200">
-                    <p className="text-base">Development</p>
+                    <p className="text-base">Software Development Intern</p>
                   </td>
                   <td className="px-0 py-4 align-top group-hover:translate-x-5 transition-transform duration-200">
-                    <p className="text-base">Nutrition Application</p>
+                    <p className="text-base">Toronto, Remote</p>
                   </td>
                   <td className="px-0 py-4 align-top group-hover:translate-x-5 transition-transform duration-200">
                     <p className="text-base">2025</p>
@@ -349,25 +352,31 @@ export default function WorkComponent() {
                   ref={(el) => {
                     rowRefs.current[1] = el;
                   }}
-                  onClick={() =>
-                    window.open("http://steelcitycodes.org/", "_blank")
-                  }
                   className="border-b border-foreground/10 transition-all duration-200 hover:bg-black hover:text-white group cursor-pointer"
                 >
-                  <td className="px-0 py-4 align-top group-hover:translate-x-5 transition-transform duration-200">
+                  <td className="px-0 py-4 align-top transition-transform duration-200 group-hover:translate-x-5">
                     <Link
                       href="http://steelcitycodes.org/"
-                      className="text-base w-fit hover:text-custom"
                       target="_blank"
+                      className="
+                        inline-flex items-center gap-1
+                        whitespace-nowrap
+                        w-fit
+                        text-base
+                        hover:text-custom
+                      "
                     >
                       Steel City Codes Ontario
+                      <ArrowUpRight className="shrink-0" />
                     </Link>
                   </td>
                   <td className="px-0 py-4 align-top group-hover:translate-x-5 transition-transform duration-200">
-                    <p className="text-base">Development</p>
+                    <p className="text-base">
+                      Founder & Lead Eductional Instructor
+                    </p>
                   </td>
                   <td className="px-0 py-4 align-top group-hover:translate-x-5 transition-transform duration-200">
-                    <p className="text-base">Curriculum Construction</p>
+                    <p className="text-base">Brampton, Remote</p>
                   </td>
                   <td className="px-0 py-4 align-top group-hover:translate-x-5 transition-transform duration-200">
                     <p className="text-base">2024</p>

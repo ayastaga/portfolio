@@ -1,4 +1,4 @@
-<img width="1100" height="602" alt="image" src="https://github.com/user-attachments/assets/5b0c0de6-17a4-4f74-8fb3-ff08d5bd587f" />
+<img width="2394" height="1310" alt="image" src="https://github.com/user-attachments/assets/8731c7fb-9976-4565-913b-3749ccad37ef" />
 
 # Agastya Sharma – Personal Portfolio
 

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
+import TechStack from "@/components/TechStack";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -103,7 +104,7 @@ const ProjectCard = ({
               {project.title}
             </h3>
             <h4
-              className="transition-colors duration-300 ease-in-out text-[15px] overflow-hidden text-muted-foreground"
+              className="transition-colors duration-300 ease-in-out text-[15px]  text-muted-foreground"
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: 2,
@@ -123,7 +124,7 @@ function BentoGrid1() {
   const projects: Project[] = [
     {
       title:
-        "Creating a platform to manage your mental health at a touch of a button.",
+        "A platform to manage your mental health at the touch of a button.",
       subtitle: "MentaLink ",
       href: "https://pitch.com/v/tu20---the-golden-parachutes---mentalink-hq6mvs",
       mediaType: "video",
@@ -132,8 +133,8 @@ function BentoGrid1() {
     },
     {
       title: "Counting calories just got smarter - and sexier.",
-      subtitle: "NutriSmart (Work)",
-      href: "https://devpost.com/software/serviceswap",
+      subtitle: "Nutrasmart (Work)",
+      href: "https://nutrismart-liard.vercel.app/",
       mediaType: "video",
       mediaSrc: "./Nutrismart.mp4",
       aspectRatio: "8/5",
@@ -159,19 +160,34 @@ function BentoGrid1() {
     {
       title:
         "An IR & Ultrasonic Sensor obstacle avoider and path finding robot.",
-      subtitle: "UTRA Challenges",
+      subtitle: "UTRA ",
       href: "https://devpost.com/software/av-challenge-the-akatsuki",
       mediaType: "image",
       mediaSrc: "/utrahacks.jpg",
       aspectRatio: "16/8",
     },
     {
-      title:
-        "A peer-to-peer platform where users exchange services without money.",
+      title: "A platform where users exchange services without money.",
       subtitle: "ServiceSwap",
-      href: "https://nutrismart-liard.vercel.app/",
+      href: "https://devpost.com/software/serviceswap",
       mediaType: "video",
       mediaSrc: "./ServiceSwap.mp4",
+      aspectRatio: "10/7",
+    },
+    {
+      title: "Model for predicting oil prices with Linear Regression",
+      subtitle: "Personal Project",
+      href: "https://github.com/ayastaga/oil-prediction-model/",
+      mediaType: "image",
+      mediaSrc: "/oilPrediction.png",
+      aspectRatio: "10/7",
+    },
+    {
+      title: "A smart & efficient way to organize your files into folders",
+      subtitle: "FileOrganizer",
+      href: "https://github.com/ayastaga/file-organizer/",
+      mediaType: "image",
+      mediaSrc: "/fileOrganizer.png",
       aspectRatio: "10/7",
     },
   ];
@@ -180,7 +196,7 @@ function BentoGrid1() {
   const rightColumn = projects.filter((_, i) => i % 2 === 1);
 
   return (
-    <section className="mt-10">
+    <section className="my-12">
       <div className="px-4 md:px-8 lg:px-15 mx-auto">
         <div className="grid grid-cols-1 gap-6 transition-all duration-300 ease-in-out lg:grid-cols-2">
           <div className="flex flex-col gap-6">
@@ -285,10 +301,11 @@ export default function WorkComponent() {
   }, []);
 
   return (
-    <div className="w-full mt-5 mb-10">
+    <div className="w-full mt-5">
       <div className="text-7xl sm:text-8xl md:text-9xl font-instrumentserif flex mx-auto w-fit mb-5">
         Work & Projects
       </div>
+
       <div className="flex px-4 md:px-8 lg:px-15 mx-auto  flex-row items-center justify-between gap-8 lg:gap-10">
         {/* Table */}
         <div
@@ -387,6 +404,7 @@ export default function WorkComponent() {
           </div>
         </div>
       </div>
+      <TechStack />
 
       <BentoGrid1 />
     </div>

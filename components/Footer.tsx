@@ -146,7 +146,7 @@ export default function Footer() {
       <canvas
         ref={canvasRef}
         className="absolute inset-0 w-full h-full"
-        style={{ opacity: isAnimating ? 1 : 0, transition: "opacity 0.5s" }}
+        style={{ opacity: isAnimating ? 0.7 : 0, transition: "opacity 0.5s" }}
       />
 
       {/* Content overlay */}
@@ -162,11 +162,13 @@ export default function Footer() {
                 </h2>
               </div>
 
-              <p className="text-sm sm:text-base text-gray-400 max-w-md font-light leading-relaxed">
-                This is a temporary website while I develop a more refined
-                version. For now, it serves as a platform to showcase my work,
-                ideas, and interests. Feel free to explore and learn more about
-                my projects and hobbies.
+              <p className="font-mono text-xs text-gray-400 max-w-md font-light leading-relaxed">
+                You made it to the footer! So here's a bit more about me; I'm a
+                creative and I love to push the bounds of what's possible; that
+                means comiing up with new, bold, innovative solutions and making
+                them look <b className="font-extrabold">good</b>. If you wanna
+                reach out to me, contact me via any of my socials. Thank you for
+                checking out my website!
               </p>
 
               {/* Toggle button */}

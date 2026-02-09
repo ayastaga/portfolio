@@ -135,7 +135,6 @@ export default function Footer() {
 
   const links = [
     { label: "Work", href: "/work" },
-    { label: "Photography", href: "https://vsco.co/ayastaga" },
     { label: "Music", href: "http://soundcloud.com/aeiwon/" },
     { label: "Contact", href: "mailto:a764shar@uwaterloo.ca" },
   ];
@@ -199,6 +198,7 @@ export default function Footer() {
                   key={link.label}
                   href={link.href}
                   className="group block"
+                  target="_blank"
                   onMouseEnter={() => setHoveredLink(i)}
                   onMouseLeave={() => setHoveredLink(null)}
                 >

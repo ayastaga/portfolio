@@ -404,8 +404,6 @@ export default function WorkComponent() {
           </div>
         </div>
       </div>
-      <TechStack />
-
       <BentoGrid1 />
     </div>
   );

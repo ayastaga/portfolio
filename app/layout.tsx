@@ -28,7 +28,24 @@ const ppMontreal = localFont({
 
 export const metadata: Metadata = {
   title: "Agastya Sharma",
-  description: "Personal Portfolio of Agastya Sharma",
+  description:
+    "I'm a creative and I love to push the bounds of what's possible; that means coming up with new, bold, innovative solutions and making them look good. If you wanna reach out to me, contact me.",
+
+  openGraph: {
+    title: "Agastya Sharma",
+    description:
+      "I'm a creative and I love to push the bounds of what's possible; that means coming up with new, bold, innovative solutions and making them look good. If you wanna reach out to me, contact me.",
+    url: "https://agastyasharma.dev",
+    siteName: "Agastya Sharma",
+    type: "website",
+  },
+
+  twitter: {
+    card: "summary_large_image",
+    title: "Agastya Sharma",
+    description:
+      "I'm a creative and I love to push the bounds of what's possible; that means coming up with new, bold, innovative solutions and making them look good. If you wanna reach out to me, contact me.",
+  },
 };
 
 export default function RootLayout({

@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { motion, useSpring } from "framer-motion";
+import { motion } from "framer-motion";
 
 interface TooltipPosition {
   left: number;
@@ -81,29 +81,33 @@ const GlobalMouseTracker: React.FC<{ children: React.ReactNode }> = ({
   const [visible, setVisible] = useState(false);
   const [isOnLink, setIsOnLink] = useState(false);
   const [isClicking, setIsClicking] = useState(false);
+  const [hasFinePointer, setHasFinePointer] = useState(false);
 
   useEffect(() => {
+    const mql = window.matchMedia("(pointer: fine)");
+    setHasFinePointer(mql.matches);
+
+    const handleChange = (e: MediaQueryListEvent) =>
+      setHasFinePointer(e.matches);
+    mql.addEventListener("change", handleChange);
+    return () => mql.removeEventListener("change", handleChange);
+  }, []);
+
+  useEffect(() => {
+    if (!hasFinePointer) return;
+
     const handleMouseMove = (e: MouseEvent) => {
       setPosition({ left: e.clientX, top: e.clientY });
       setVisible(true);
 
-      // Check if hovering over a link
       const target = e.target as HTMLElement;
       const link = target.closest("a") || target.closest("button");
       setIsOnLink(!!link);
     };
 
-    const handleMouseLeave = () => {
-      setVisible(false);
-    };
-
-    const handleMouseDown = () => {
-      setIsClicking(true);
-    };
-
-    const handleMouseUp = () => {
-      setIsClicking(false);
-    };
+    const handleMouseLeave = () => setVisible(false);
+    const handleMouseDown = () => setIsClicking(true);
+    const handleMouseUp = () => setIsClicking(false);
 
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
@@ -116,17 +120,19 @@ const GlobalMouseTracker: React.FC<{ children: React.ReactNode }> = ({
       document.removeEventListener("mousedown", handleMouseDown);
       document.removeEventListener("mouseup", handleMouseUp);
     };
-  }, []);
+  }, [hasFinePointer]);
 
   return (
     <>
       {children}
-      <CursorDot
-        position={position}
-        visible={visible}
-        isOnLink={isOnLink}
-        isClicking={isClicking}
-      />
+      {hasFinePointer && (
+        <CursorDot
+          position={position}
+          visible={visible}
+          isOnLink={isOnLink}
+          isClicking={isClicking}
+        />
+      )}
     </>
   );
 };

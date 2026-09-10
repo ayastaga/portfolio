@@ -267,7 +267,7 @@ export default function Navbar() {
               LinkedIn
             </SocialLink>
             <span className="opacity-30">/</span>
-            <SocialLink href="./resume.pdf">CV</SocialLink>
+            <SocialLink href="./Agastya_Sharma_SWE_Resume.pdf">CV</SocialLink>
           </div>
           <div className="flex md:hidden"></div>
 
@@ -351,7 +351,7 @@ export default function Navbar() {
                 onClick={() => setIsMenuOpen(false)}
               />
               <MenuLinkItem
-                href="/resume.pdf"
+                href="/Agastya_Sharma_SWE_Resume.pdf"
                 number="03"
                 text="Resume"
                 alignRight={true}

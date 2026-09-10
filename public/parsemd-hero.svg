@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" fill="none">
+  <rect width="1200" height="840" fill="#0a0a0a"/>
+
+  <!-- Subtle grid -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#ffffff" stroke-opacity="0.03" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="840" fill="url(#grid)"/>
+
+  <!-- Left side: File type icons -->
+  <!-- PDF -->
+  <rect x="80" y="200" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ef6000" stroke-width="1.5"/>
+  <text x="140" y="260" text-anchor="middle" fill="#ef6000" font-family="monospace" font-size="14" font-weight="bold">.pdf</text>
+  <rect x="100" y="280" width="80" height="3" rx="1.5" fill="#333"/>
+  <rect x="100" y="292" width="60" height="3" rx="1.5" fill="#333"/>
+  <rect x="100" y="304" width="70" height="3" rx="1.5" fill="#333"/>
+  <rect x="100" y="316" width="50" height="3" rx="1.5" fill="#333"/>
+
+  <!-- DOCX -->
+  <rect x="80" y="380" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="140" y="440" text-anchor="middle" fill="#888" font-family="monospace" font-size="14" font-weight="bold">.docx</text>
+  <rect x="100" y="460" width="80" height="3" rx="1.5" fill="#333"/>
+  <rect x="100" y="472" width="55" height="3" rx="1.5" fill="#333"/>
+  <rect x="100" y="484" width="70" height="3" rx="1.5" fill="#333"/>
+  <rect x="100" y="496" width="45" height="3" rx="1.5" fill="#333"/>
+
+  <!-- PPTX -->
+  <rect x="80" y="560" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="140" y="620" text-anchor="middle" fill="#888" font-family="monospace" font-size="14" font-weight="bold">.pptx</text>
+  <rect x="100" y="640" width="80" height="3" rx="1.5" fill="#333"/>
+  <rect x="100" y="652" width="65" height="3" rx="1.5" fill="#333"/>
+  <rect x="100" y="664" width="75" height="3" rx="1.5" fill="#333"/>
+
+  <!-- XLSX -->
+  <rect x="230" y="290" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="290" y="350" text-anchor="middle" fill="#888" font-family="monospace" font-size="14" font-weight="bold">.xlsx</text>
+  <rect x="250" y="370" width="80" height="3" rx="1.5" fill="#333"/>
+  <rect x="250" y="382" width="60" height="3" rx="1.5" fill="#333"/>
+  <rect x="250" y="394" width="70" height="3" rx="1.5" fill="#333"/>
+
+  <!-- IMG -->
+  <rect x="230" y="470" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
+  <text x="290" y="530" text-anchor="middle" fill="#888" font-family="monospace" font-size="14" font-weight="bold">.png</text>
+  <rect x="255" y="550" width="70" height="50" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
+  <circle cx="275" cy="570" r="8" fill="#333"/>
+
+  <!-- Arrow flow -->
+  <line x1="380" y1="420" x2="480" y2="420" stroke="#ef6000" stroke-width="2" stroke-dasharray="6 4"/>
+  <polygon points="480,414 494,420 480,426" fill="#ef6000"/>
+
+  <!-- Center: parsemd box -->
+  <rect x="500" y="340" width="200" height="160" rx="12" fill="#141414" stroke="#ef6000" stroke-width="2"/>
+  <text x="600" y="400" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="24" font-weight="bold">parsemd</text>
+  <text x="600" y="430" text-anchor="middle" fill="#ef6000" font-family="monospace" font-size="12">binary → markdown</text>
+  <rect x="540" y="450" width="120" height="2" rx="1" fill="#ef6000" opacity="0.3"/>
+  <text x="600" y="475" text-anchor="middle" fill="#555" font-family="monospace" font-size="11">MIT License</text>
+
+  <!-- Arrow out -->
+  <line x1="720" y1="420" x2="820" y2="420" stroke="#ef6000" stroke-width="2" stroke-dasharray="6 4"/>
+  <polygon points="820,414 834,420 820,426" fill="#ef6000"/>
+
+  <!-- Right side: Markdown output -->
+  <rect x="840" y="220" width="280" height="400" rx="10" fill="#141414" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+
+  <!-- Terminal dots -->
+  <circle cx="862" cy="242" r="5" fill="#ef6000"/>
+  <circle cx="878" cy="242" r="5" fill="#555"/>
+  <circle cx="894" cy="242" r="5" fill="#555"/>
+
+  <text x="862" y="285" fill="#ef6000" font-family="monospace" font-size="13" font-weight="bold"># Heading</text>
+  <text x="862" y="310" fill="#666" font-family="monospace" font-size="11">Lorem ipsum dolor sit</text>
+  <text x="862" y="328" fill="#666" font-family="monospace" font-size="11">amet consectetur.</text>
+
+  <text x="862" y="360" fill="#ef6000" font-family="monospace" font-size="13" font-weight="bold">## Section</text>
+  <text x="862" y="385" fill="#666" font-family="monospace" font-size="11">- Item one extracted</text>
+  <text x="862" y="403" fill="#666" font-family="monospace" font-size="11">- Item two parsed</text>
+  <text x="862" y="421" fill="#666" font-family="monospace" font-size="11">- Item three converted</text>
+
+  <text x="862" y="455" fill="#888" font-family="monospace" font-size="11">```json</text>
+  <text x="862" y="473" fill="#ef6000" font-family="monospace" font-size="11">{ "tables": 3,</text>
+  <text x="862" y="491" fill="#ef6000" font-family="monospace" font-size="11">  "images": 7 }</text>
+  <text x="862" y="509" fill="#888" font-family="monospace" font-size="11">```</text>
+
+  <rect x="862" y="530" width="200" height="2" rx="1" fill="#333"/>
+  <text x="862" y="555" fill="#444" font-family="monospace" font-size="10">output.md — 2.4kb</text>
+
+  <!-- Title -->
+  <text x="600" y="120" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="42" font-weight="300" letter-spacing="0.05em">parsemd</text>
+  <text x="600" y="155" text-anchor="middle" fill="#666" font-family="monospace" font-size="14">Binary documents to clean, structured markdown</text>
+</svg>

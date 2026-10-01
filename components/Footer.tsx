@@ -1,6 +1,6 @@
 "use client";
 import { ArrowRight } from "lucide-react";
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 export default function Footer() {
@@ -161,10 +161,10 @@ export default function Footer() {
                 </h2>
               </div>
 
-              <p className="font-mono text-xs text-gray-400 max-w-md font-light leading-relaxed">
+              <p className="text-xs text-gray-400 max-w-md font-light leading-relaxed">
                 You made it to the footer! So here's a bit more about me; I'm a
                 creative and I love to push the bounds of what's possible; that
-                means comiing up with new, bold, innovative solutions and making
+                means coming up with new, bold, innovative solutions and making
                 them look <b className="font-extrabold">good</b>. If you wanna
                 reach out to me, contact me via any of my socials. Thank you for
                 checking out my website!
@@ -185,7 +185,7 @@ export default function Footer() {
                     }}
                   />
                 </div>
-                <span className="font-mono">
+                <span>
                   {isAnimating ? "SIMULATION ON" : "SIMULATION OFF"}
                 </span>
               </button>
@@ -204,7 +204,7 @@ export default function Footer() {
                 >
                   <div className="flex items-center justify-between py-4 sm:py-5 border-b border-white/5 transition-all duration-300 group-hover:border-white/20 group-hover:pl-2 hover:text-custom">
                     <div className="flex items-center gap-4">
-                      <span className="text-xs text-white font-mono opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <span className="text-xs text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         0{i + 1}
                       </span>
                       <span className="text-2xl sm:text-3xl font-light tracking-tight">

@@ -1,4 +1,52 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 840" fill="none">
+  <style>
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes drawLine {
+      from { stroke-dashoffset: 120; }
+      to { stroke-dashoffset: 0; }
+    }
+    @keyframes pulseGlow {
+      0%, 100% { opacity: 0.6; }
+      50% { opacity: 1; }
+    }
+    @keyframes scaleIn {
+      from { opacity: 0; transform: scale(0.92); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    @keyframes typeIn {
+      from { opacity: 0; transform: translateX(-6px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    .file-1 { animation: fadeInUp 0.6s ease-out 0.2s both; }
+    .file-2 { animation: fadeInUp 0.6s ease-out 0.5s both; }
+    .file-3 { animation: fadeInUp 0.6s ease-out 0.8s both; }
+    .file-4 { animation: fadeInUp 0.6s ease-out 0.4s both; }
+    .file-5 { animation: fadeInUp 0.6s ease-out 0.7s both; }
+    .arrow-line { stroke-dasharray: 120; animation: drawLine 0.8s ease-out 1.2s both; }
+    .arrow-head { animation: fadeIn 0.3s ease-out 1.9s both; }
+    .center-box { animation: scaleIn 0.5s ease-out 1.4s both; }
+    .arrow-line-2 { stroke-dasharray: 120; animation: drawLine 0.8s ease-out 2.0s both; }
+    .arrow-head-2 { animation: fadeIn 0.3s ease-out 2.7s both; }
+    .output-box { animation: fadeIn 0.6s ease-out 2.2s both; }
+    .md-1 { animation: typeIn 0.4s ease-out 2.6s both; }
+    .md-2 { animation: typeIn 0.4s ease-out 2.8s both; }
+    .md-3 { animation: typeIn 0.4s ease-out 3.0s both; }
+    .md-4 { animation: typeIn 0.4s ease-out 3.2s both; }
+    .md-5 { animation: typeIn 0.4s ease-out 3.4s both; }
+    .md-6 { animation: typeIn 0.4s ease-out 3.6s both; }
+    .md-7 { animation: typeIn 0.4s ease-out 3.8s both; }
+    .md-8 { animation: typeIn 0.4s ease-out 4.0s both; }
+    .title-text { animation: fadeIn 0.8s ease-out 0s both; }
+    .accent-pulse { animation: pulseGlow 3s ease-in-out 4s infinite; }
+  </style>
+
   <rect width="1200" height="840" fill="#0a0a0a"/>
 
   <!-- Subtle grid -->
@@ -9,84 +57,98 @@
   </defs>
   <rect width="1200" height="840" fill="url(#grid)"/>
 
-  <!-- Left side: File type icons -->
+  <!-- Title -->
+  <g class="title-text">
+    <text x="600" y="115" text-anchor="middle" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="44" font-weight="500" letter-spacing="0.03em">parsemd</text>
+    <text x="600" y="152" text-anchor="middle" fill="#666" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="15" font-weight="400">Binary documents to clean, structured markdown</text>
+  </g>
+
+  <!-- Left: File type cards -->
   <!-- PDF -->
-  <rect x="80" y="200" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ef6000" stroke-width="1.5"/>
-  <text x="140" y="260" text-anchor="middle" fill="#ef6000" font-family="monospace" font-size="14" font-weight="bold">.pdf</text>
-  <rect x="100" y="280" width="80" height="3" rx="1.5" fill="#333"/>
-  <rect x="100" y="292" width="60" height="3" rx="1.5" fill="#333"/>
-  <rect x="100" y="304" width="70" height="3" rx="1.5" fill="#333"/>
-  <rect x="100" y="316" width="50" height="3" rx="1.5" fill="#333"/>
+  <g class="file-1">
+    <rect x="80" y="210" width="120" height="140" rx="8" fill="#141414" stroke="#ef6000" stroke-width="1.5"/>
+    <text x="140" y="268" text-anchor="middle" fill="#ef6000" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="15" font-weight="600">.pdf</text>
+    <rect x="102" y="288" width="76" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="102" y="300" width="56" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="102" y="312" width="66" height="3" rx="1.5" fill="#2a2a2a"/>
+  </g>
 
   <!-- DOCX -->
-  <rect x="80" y="380" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
-  <text x="140" y="440" text-anchor="middle" fill="#888" font-family="monospace" font-size="14" font-weight="bold">.docx</text>
-  <rect x="100" y="460" width="80" height="3" rx="1.5" fill="#333"/>
-  <rect x="100" y="472" width="55" height="3" rx="1.5" fill="#333"/>
-  <rect x="100" y="484" width="70" height="3" rx="1.5" fill="#333"/>
-  <rect x="100" y="496" width="45" height="3" rx="1.5" fill="#333"/>
+  <g class="file-2">
+    <rect x="80" y="375" width="120" height="140" rx="8" fill="#141414" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="140" y="433" text-anchor="middle" fill="#777" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="15" font-weight="600">.docx</text>
+    <rect x="102" y="453" width="76" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="102" y="465" width="52" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="102" y="477" width="64" height="3" rx="1.5" fill="#2a2a2a"/>
+  </g>
 
   <!-- PPTX -->
-  <rect x="80" y="560" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
-  <text x="140" y="620" text-anchor="middle" fill="#888" font-family="monospace" font-size="14" font-weight="bold">.pptx</text>
-  <rect x="100" y="640" width="80" height="3" rx="1.5" fill="#333"/>
-  <rect x="100" y="652" width="65" height="3" rx="1.5" fill="#333"/>
-  <rect x="100" y="664" width="75" height="3" rx="1.5" fill="#333"/>
+  <g class="file-3">
+    <rect x="80" y="540" width="120" height="140" rx="8" fill="#141414" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="140" y="598" text-anchor="middle" fill="#777" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="15" font-weight="600">.pptx</text>
+    <rect x="102" y="618" width="76" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="102" y="630" width="60" height="3" rx="1.5" fill="#2a2a2a"/>
+  </g>
 
   <!-- XLSX -->
-  <rect x="230" y="290" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
-  <text x="290" y="350" text-anchor="middle" fill="#888" font-family="monospace" font-size="14" font-weight="bold">.xlsx</text>
-  <rect x="250" y="370" width="80" height="3" rx="1.5" fill="#333"/>
-  <rect x="250" y="382" width="60" height="3" rx="1.5" fill="#333"/>
-  <rect x="250" y="394" width="70" height="3" rx="1.5" fill="#333"/>
+  <g class="file-4">
+    <rect x="230" y="280" width="120" height="140" rx="8" fill="#141414" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="290" y="338" text-anchor="middle" fill="#777" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="15" font-weight="600">.xlsx</text>
+    <rect x="252" y="358" width="76" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="252" y="370" width="58" height="3" rx="1.5" fill="#2a2a2a"/>
+    <rect x="252" y="382" width="68" height="3" rx="1.5" fill="#2a2a2a"/>
+  </g>
 
   <!-- IMG -->
-  <rect x="230" y="470" width="120" height="150" rx="8" fill="#1a1a1a" stroke="#ffffff" stroke-opacity="0.15" stroke-width="1"/>
-  <text x="290" y="530" text-anchor="middle" fill="#888" font-family="monospace" font-size="14" font-weight="bold">.png</text>
-  <rect x="255" y="550" width="70" height="50" rx="4" fill="#222" stroke="#333" stroke-width="1"/>
-  <circle cx="275" cy="570" r="8" fill="#333"/>
+  <g class="file-5">
+    <rect x="230" y="445" width="120" height="140" rx="8" fill="#141414" stroke="#ffffff" stroke-opacity="0.12" stroke-width="1"/>
+    <text x="290" y="503" text-anchor="middle" fill="#777" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="15" font-weight="600">.png</text>
+    <rect x="258" y="523" width="64" height="42" rx="4" fill="#1a1a1a" stroke="#2a2a2a" stroke-width="1"/>
+    <circle cx="276" cy="540" r="7" fill="#2a2a2a"/>
+  </g>
 
-  <!-- Arrow flow -->
-  <line x1="380" y1="420" x2="480" y2="420" stroke="#ef6000" stroke-width="2" stroke-dasharray="6 4"/>
-  <polygon points="480,414 494,420 480,426" fill="#ef6000"/>
+  <!-- Arrow in -->
+  <line x1="380" y1="420" x2="490" y2="420" stroke="#ef6000" stroke-width="2" class="arrow-line"/>
+  <polygon points="488,414 502,420 488,426" fill="#ef6000" class="arrow-head"/>
 
-  <!-- Center: parsemd box -->
-  <rect x="500" y="340" width="200" height="160" rx="12" fill="#141414" stroke="#ef6000" stroke-width="2"/>
-  <text x="600" y="400" text-anchor="middle" fill="#ffffff" font-family="monospace" font-size="24" font-weight="bold">parsemd</text>
-  <text x="600" y="430" text-anchor="middle" fill="#ef6000" font-family="monospace" font-size="12">binary → markdown</text>
-  <rect x="540" y="450" width="120" height="2" rx="1" fill="#ef6000" opacity="0.3"/>
-  <text x="600" y="475" text-anchor="middle" fill="#555" font-family="monospace" font-size="11">MIT License</text>
+  <!-- Center: parsemd processor -->
+  <g class="center-box">
+    <rect x="510" y="345" width="190" height="150" rx="12" fill="#141414" stroke="#ef6000" stroke-width="2"/>
+    <rect x="510" y="345" width="190" height="150" rx="12" fill="#ef6000" fill-opacity="0.04"/>
+    <text x="605" y="405" text-anchor="middle" fill="#ffffff" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="24" font-weight="600">parsemd</text>
+    <text x="605" y="432" text-anchor="middle" fill="#ef6000" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="13" font-weight="500">binary → markdown</text>
+    <rect x="550" y="450" width="110" height="1" fill="#ef6000" opacity="0.2"/>
+    <text x="605" y="475" text-anchor="middle" fill="#555" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="12">MIT License</text>
+  </g>
 
   <!-- Arrow out -->
-  <line x1="720" y1="420" x2="820" y2="420" stroke="#ef6000" stroke-width="2" stroke-dasharray="6 4"/>
-  <polygon points="820,414 834,420 820,426" fill="#ef6000"/>
+  <line x1="710" y1="420" x2="820" y2="420" stroke="#ef6000" stroke-width="2" class="arrow-line-2"/>
+  <polygon points="818,414 832,420 818,426" fill="#ef6000" class="arrow-head-2"/>
 
-  <!-- Right side: Markdown output -->
-  <rect x="840" y="220" width="280" height="400" rx="10" fill="#141414" stroke="#ffffff" stroke-opacity="0.1" stroke-width="1"/>
+  <!-- Right: Markdown output -->
+  <g class="output-box">
+    <rect x="840" y="230" width="280" height="380" rx="10" fill="#141414" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1"/>
+    <!-- Terminal dots -->
+    <circle cx="864" cy="254" r="5" fill="#ef6000" class="accent-pulse"/>
+    <circle cx="880" cy="254" r="5" fill="#444"/>
+    <circle cx="896" cy="254" r="5" fill="#444"/>
+    <line x1="840" y1="272" x2="1120" y2="272" stroke="#1a1a1a" stroke-width="1"/>
+  </g>
 
-  <!-- Terminal dots -->
-  <circle cx="862" cy="242" r="5" fill="#ef6000"/>
-  <circle cx="878" cy="242" r="5" fill="#555"/>
-  <circle cx="894" cy="242" r="5" fill="#555"/>
+  <text x="864" y="300" fill="#ef6000" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600" class="md-1"># Document Title</text>
+  <text x="864" y="326" fill="#666" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="12" font-weight="400" class="md-2">Extracted content from the</text>
+  <text x="864" y="344" fill="#666" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="12" font-weight="400" class="md-3">source document, cleaned.</text>
 
-  <text x="862" y="285" fill="#ef6000" font-family="monospace" font-size="13" font-weight="bold"># Heading</text>
-  <text x="862" y="310" fill="#666" font-family="monospace" font-size="11">Lorem ipsum dolor sit</text>
-  <text x="862" y="328" fill="#666" font-family="monospace" font-size="11">amet consectetur.</text>
+  <text x="864" y="378" fill="#ef6000" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="14" font-weight="600" class="md-4">## Section</text>
+  <text x="864" y="404" fill="#666" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="12" font-weight="400" class="md-5">- Tables preserved</text>
+  <text x="864" y="422" fill="#666" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="12" font-weight="400" class="md-6">- Images extracted</text>
+  <text x="864" y="440" fill="#666" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="12" font-weight="400" class="md-7">- Formatting intact</text>
 
-  <text x="862" y="360" fill="#ef6000" font-family="monospace" font-size="13" font-weight="bold">## Section</text>
-  <text x="862" y="385" fill="#666" font-family="monospace" font-size="11">- Item one extracted</text>
-  <text x="862" y="403" fill="#666" font-family="monospace" font-size="11">- Item two parsed</text>
-  <text x="862" y="421" fill="#666" font-family="monospace" font-size="11">- Item three converted</text>
-
-  <text x="862" y="455" fill="#888" font-family="monospace" font-size="11">```json</text>
-  <text x="862" y="473" fill="#ef6000" font-family="monospace" font-size="11">{ "tables": 3,</text>
-  <text x="862" y="491" fill="#ef6000" font-family="monospace" font-size="11">  "images": 7 }</text>
-  <text x="862" y="509" fill="#888" font-family="monospace" font-size="11">```</text>
-
-  <rect x="862" y="530" width="200" height="2" rx="1" fill="#333"/>
-  <text x="862" y="555" fill="#444" font-family="monospace" font-size="10">output.md — 2.4kb</text>
-
-  <!-- Title -->
-  <text x="600" y="120" text-anchor="middle" fill="#ffffff" font-family="system-ui, sans-serif" font-size="42" font-weight="300" letter-spacing="0.05em">parsemd</text>
-  <text x="600" y="155" text-anchor="middle" fill="#666" font-family="monospace" font-size="14">Binary documents to clean, structured markdown</text>
+  <g class="md-8">
+    <text x="864" y="474" fill="#555" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="11" font-weight="400">```json</text>
+    <text x="864" y="494" fill="#ef6000" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="11" font-weight="500">{ "tables": 3, "images": 7 }</text>
+    <text x="864" y="514" fill="#555" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="11" font-weight="400">```</text>
+    <rect x="864" y="535" width="196" height="1" fill="#2a2a2a"/>
+    <text x="864" y="558" fill="#444" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="11" font-weight="400">output.md — 2.4kb</text>
+  </g>
 </svg>

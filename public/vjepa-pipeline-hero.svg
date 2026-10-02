@@ -1,46 +1,131 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 700" fill="none">
   <style>
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(14px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    @keyframes drawArrow {
-      from { stroke-dashoffset: 80; }
-      to { stroke-dashoffset: 0; }
-    }
-    @keyframes fillBar {
-      from { width: 0; }
-      to { width: 135px; }
-    }
-    @keyframes popIn {
-      from { opacity: 0; transform: scale(0.8); }
-      to { opacity: 1; transform: scale(1); }
-    }
+    /* loops forever: build in, hold, fade out, restart */
+    [class] { transform-box: fill-box; transform-origin: center; }
     @keyframes subtlePulse {
       0%, 100% { opacity: 0.5; }
       50% { opacity: 0.8; }
     }
-    .title { animation: fadeIn 0.6s ease-out 0s both; }
-    .stage-1 { animation: fadeInUp 0.5s ease-out 0.3s both; }
-    .stage-2 { animation: fadeInUp 0.5s ease-out 0.7s both; }
-    .stage-3 { animation: fadeInUp 0.5s ease-out 1.1s both; }
-    .stage-4 { animation: fadeInUp 0.5s ease-out 1.5s both; }
-    .stage-5 { animation: fadeInUp 0.5s ease-out 1.9s both; }
-    .conn-1 { stroke-dasharray: 80; animation: drawArrow 0.5s ease-out 0.9s both; }
-    .conn-1-head { animation: fadeIn 0.2s ease-out 1.3s both; }
-    .conn-2 { stroke-dasharray: 80; animation: drawArrow 0.5s ease-out 1.3s both; }
-    .conn-2-head { animation: fadeIn 0.2s ease-out 1.7s both; }
-    .conn-3 { stroke-dasharray: 80; animation: drawArrow 0.5s ease-out 1.7s both; }
-    .conn-3-head { animation: fadeIn 0.2s ease-out 2.1s both; }
-    .conn-4 { stroke-dasharray: 80; animation: drawArrow 0.5s ease-out 2.1s both; }
-    .conn-4-head { animation: fadeIn 0.2s ease-out 2.5s both; }
-    .progress-fill { animation: fillBar 1.2s ease-out 2.4s both; }
-    .check { animation: popIn 0.4s ease-out 3.4s both; }
-    .bottom-bar { animation: fadeIn 0.6s ease-out 2.8s both; }
+
+    @keyframes fadeIn-title {
+      0%, 0.00% { opacity: 0; }
+      7.50%, 87.50% { opacity: 1; }
+      95.00%, 99.9% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .title { animation: fadeIn-title 8s ease-out infinite; }
+    @keyframes fadeInUp-stage-1 {
+      0%, 3.75% { opacity: 0; transform: translateY(14px); }
+      10.00%, 87.50% { opacity: 1; transform: translateY(0); }
+      95.00%, 99.9% { opacity: 0; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(14px); }
+    }
+    .stage-1 { animation: fadeInUp-stage-1 8s ease-out infinite; }
+    @keyframes fadeInUp-stage-2 {
+      0%, 8.75% { opacity: 0; transform: translateY(14px); }
+      15.00%, 87.50% { opacity: 1; transform: translateY(0); }
+      95.00%, 99.9% { opacity: 0; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(14px); }
+    }
+    .stage-2 { animation: fadeInUp-stage-2 8s ease-out infinite; }
+    @keyframes fadeInUp-stage-3 {
+      0%, 13.75% { opacity: 0; transform: translateY(14px); }
+      20.00%, 87.50% { opacity: 1; transform: translateY(0); }
+      95.00%, 99.9% { opacity: 0; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(14px); }
+    }
+    .stage-3 { animation: fadeInUp-stage-3 8s ease-out infinite; }
+    @keyframes fadeInUp-stage-4 {
+      0%, 18.75% { opacity: 0; transform: translateY(14px); }
+      25.00%, 87.50% { opacity: 1; transform: translateY(0); }
+      95.00%, 99.9% { opacity: 0; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(14px); }
+    }
+    .stage-4 { animation: fadeInUp-stage-4 8s ease-out infinite; }
+    @keyframes fadeInUp-stage-5 {
+      0%, 23.75% { opacity: 0; transform: translateY(14px); }
+      30.00%, 87.50% { opacity: 1; transform: translateY(0); }
+      95.00%, 99.9% { opacity: 0; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(14px); }
+    }
+    .stage-5 { animation: fadeInUp-stage-5 8s ease-out infinite; }
+    @keyframes drawArrow-conn-1 {
+      0%, 11.25% { stroke-dashoffset: 80; opacity: 1; }
+      17.50%, 87.50% { stroke-dashoffset: 0; opacity: 1; }
+      95.00%, 99.9% { stroke-dashoffset: 0; opacity: 0; }
+      100% { stroke-dashoffset: 80; opacity: 1; }
+    }
+    .conn-1 { stroke-dasharray: 80; animation: drawArrow-conn-1 8s ease-out infinite; }
+    @keyframes fadeIn-conn-1-head {
+      0%, 16.25% { opacity: 0; }
+      18.75%, 87.50% { opacity: 1; }
+      95.00%, 99.9% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .conn-1-head { animation: fadeIn-conn-1-head 8s ease-out infinite; }
+    @keyframes drawArrow-conn-2 {
+      0%, 16.25% { stroke-dashoffset: 80; opacity: 1; }
+      22.50%, 87.50% { stroke-dashoffset: 0; opacity: 1; }
+      95.00%, 99.9% { stroke-dashoffset: 0; opacity: 0; }
+      100% { stroke-dashoffset: 80; opacity: 1; }
+    }
+    .conn-2 { stroke-dasharray: 80; animation: drawArrow-conn-2 8s ease-out infinite; }
+    @keyframes fadeIn-conn-2-head {
+      0%, 21.25% { opacity: 0; }
+      23.75%, 87.50% { opacity: 1; }
+      95.00%, 99.9% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .conn-2-head { animation: fadeIn-conn-2-head 8s ease-out infinite; }
+    @keyframes drawArrow-conn-3 {
+      0%, 21.25% { stroke-dashoffset: 80; opacity: 1; }
+      27.50%, 87.50% { stroke-dashoffset: 0; opacity: 1; }
+      95.00%, 99.9% { stroke-dashoffset: 0; opacity: 0; }
+      100% { stroke-dashoffset: 80; opacity: 1; }
+    }
+    .conn-3 { stroke-dasharray: 80; animation: drawArrow-conn-3 8s ease-out infinite; }
+    @keyframes fadeIn-conn-3-head {
+      0%, 26.25% { opacity: 0; }
+      28.75%, 87.50% { opacity: 1; }
+      95.00%, 99.9% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .conn-3-head { animation: fadeIn-conn-3-head 8s ease-out infinite; }
+    @keyframes drawArrow-conn-4 {
+      0%, 26.25% { stroke-dashoffset: 80; opacity: 1; }
+      32.50%, 87.50% { stroke-dashoffset: 0; opacity: 1; }
+      95.00%, 99.9% { stroke-dashoffset: 0; opacity: 0; }
+      100% { stroke-dashoffset: 80; opacity: 1; }
+    }
+    .conn-4 { stroke-dasharray: 80; animation: drawArrow-conn-4 8s ease-out infinite; }
+    @keyframes fadeIn-conn-4-head {
+      0%, 31.25% { opacity: 0; }
+      33.75%, 87.50% { opacity: 1; }
+      95.00%, 99.9% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .conn-4-head { animation: fadeIn-conn-4-head 8s ease-out infinite; }
+    @keyframes fillBar-progress-fill {
+      0%, 30.00% { transform: scaleX(0); opacity: 0.25; }
+      45.00%, 87.50% { transform: scaleX(1); opacity: 0.25; }
+      95.00%, 99.9% { transform: scaleX(1); opacity: 0; }
+      100% { transform: scaleX(0); opacity: 0.25; }
+    }
+    .progress-fill { animation: fillBar-progress-fill 8s ease-out infinite; }
+    @keyframes popIn-check {
+      0%, 42.50% { opacity: 0; transform: scale(0.8); }
+      47.50%, 87.50% { opacity: 1; transform: scale(1); }
+      95.00%, 99.9% { opacity: 0; transform: scale(1); }
+      100% { opacity: 0; transform: scale(0.8); }
+    }
+    .check { animation: popIn-check 8s ease-out infinite; }
+    @keyframes fadeIn-bottom-bar {
+      0%, 35.00% { opacity: 0; }
+      42.50%, 87.50% { opacity: 1; }
+      95.00%, 99.9% { opacity: 0; }
+      100% { opacity: 0; }
+    }
+    .bottom-bar { animation: fadeIn-bottom-bar 8s ease-out infinite; }
     .dot-pulse { animation: subtlePulse 2.5s ease-in-out 3.5s infinite; }
   </style>
 
@@ -168,7 +253,7 @@
 
     <!-- Progress bar -->
     <rect x="1180" y="232" width="145" height="12" rx="6" fill="#f1f5f9"/>
-    <rect x="1180" y="232" width="135" height="12" rx="6" fill="#16a34a" opacity="0.25" class="progress-fill"/>
+    <rect x="1180" y="232" width="135" height="12" rx="6" fill="#16a34a" opacity="0.25" class="progress-fill" style="transform-origin: left center"/>
     <text x="1180" y="266" fill="#16a34a" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="10" font-weight="500">94% complete</text>
 
     <text x="1180" y="292" fill="#0f172a" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="13" font-weight="600">Dataset Stats</text>
@@ -209,6 +294,6 @@
     <text x="1300" y="528" text-anchor="end" fill="#cbd5e1" font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', sans-serif" font-size="11" font-weight="400">MIT License</text>
 
     <!-- Pulsing dot -->
-    <circle cx="1320" y="522" r="4" fill="#16a34a" class="dot-pulse"/>
+    <circle cx="1320" cy="522" r="4" fill="#16a34a" class="dot-pulse"/>
   </g>
 </svg>

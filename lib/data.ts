@@ -24,12 +24,21 @@ export interface WorkExperience {
 
 export const featuredProjects: FeaturedProject[] = [
   {
+    name: "tinyaya-quant-safety",
+    description:
+      "Does 4-bit quantization erode Tiny Aya's multilingual safety floor?",
+    href: "https://github.com/ayastaga/tinyaya-quant-safety",
+    mediaType: "video",
+    mediaSrc: "/tinyaya.mp4",
+    aspectRatio: "16/9",
+  },
+  {
     name: "parsemd",
     description:
       "Converts binary documents (DOCX, PDF, PPTX, XLSX, images, audio) into markdown",
     href: "https://github.com/ayastaga/parsemd",
-    mediaType: "image",
-    mediaSrc: "/parsemd-hero.svg",
+    mediaType: "video",
+    mediaSrc: "/parsemd.mp4",
     aspectRatio: "10/7",
   },
   {
@@ -37,8 +46,8 @@ export const featuredProjects: FeaturedProject[] = [
     description:
       "Production-grade data curation pipeline for training V-JEPA action-conditioned latent world models",
     href: "https://github.com/ayastaga/vjepa_pipeline",
-    mediaType: "image",
-    mediaSrc: "/vjepa-pipeline-hero.svg",
+    mediaType: "video",
+    mediaSrc: "/vjepa.mp4",
     aspectRatio: "2/1",
   },
   {
@@ -153,12 +162,5 @@ export const workExperience: WorkExperience[] = [
     location: "Toronto, ON",
     year: "2025",
     href: "http://sylphiaconsulting.com/",
-  },
-  {
-    company: "Steel City Codes Ontario",
-    title: "Founder",
-    location: "Brampton, ON",
-    year: "2024",
-    href: "https://www.steelcitycodes.org/",
   },
 ];

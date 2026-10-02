@@ -17,7 +17,7 @@ import {
 
 gsap.registerPlugin(ScrollTrigger);
 
-const MotionLink = motion(Link);
+const MotionLink = motion.create(Link);
 
 function ProjectCard({ project }: { project: FeaturedProject }) {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -73,7 +73,7 @@ function ProjectCard({ project }: { project: FeaturedProject }) {
                   alt={project.name}
                   fill
                   className="object-cover scale-[1.02] transition-opacity duration-500"
-                  sizes="100vw"
+                  sizes="(min-width: 1024px) 45vw, (min-width: 768px) 90vw, 92vw"
                 />
               )}
             </div>

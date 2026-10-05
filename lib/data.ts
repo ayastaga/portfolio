@@ -24,6 +24,14 @@ export interface WorkExperience {
 
 export const featuredProjects: FeaturedProject[] = [
   {
+    name: "tinyaya-l2thinker-optimization",
+    description: "Optimized the L2Thinker TinyAya model",
+    href: "https://github.com/ayastaga/tinyaya-l2thinker-optimization",
+    mediaType: "video",
+    mediaSrc: "/tinyayal2.mp4",
+    aspectRatio: "10/7",
+  },
+  {
     name: "tinyaya-quant-safety",
     description:
       "Does 4-bit quantization erode Tiny Aya's multilingual safety floor?",

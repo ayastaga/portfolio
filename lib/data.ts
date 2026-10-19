@@ -24,6 +24,15 @@ export interface WorkExperience {
 
 export const featuredProjects: FeaturedProject[] = [
   {
+    name: "Lifeline",
+    description:
+      "Multilingual financial assistant that turns your situation into a cited roadmap of benefits, credits, and taxes",
+    href: "https://github.com/ayastaga/lifeline",
+    mediaType: "video",
+    mediaSrc: "/lifeline-promo.mp4",
+    aspectRatio: "16/9",
+  },
+  {
     name: "tinyaya-l2thinker-optimization",
     description: "Optimized the L2Thinker TinyAya model",
     href: "https://github.com/ayastaga/tinyaya-l2thinker-optimization",

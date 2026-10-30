@@ -5,13 +5,8 @@ export interface FeaturedProject {
   mediaType: "video" | "image";
   mediaSrc: string;
   aspectRatio: string;
-}
-
-export interface GithubProject {
-  name: string;
-  description: string;
-  href: string;
-  language: string;
+  // When the project was made, e.g. "Oct 2026"; omitted when unknown
+  date?: string;
 }
 
 export interface WorkExperience {
@@ -30,7 +25,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://github.com/ayastaga/lifeline",
     mediaType: "video",
     mediaSrc: "/lifeline-promo.mp4",
-    aspectRatio: "16/9",
+    aspectRatio: "1920/1080",
+    date: "Oct 2026",
   },
   {
     name: "tinyaya-l2thinker-optimization",
@@ -38,7 +34,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://github.com/ayastaga/tinyaya-l2thinker-optimization",
     mediaType: "video",
     mediaSrc: "/tinyayal2.mp4",
-    aspectRatio: "10/7",
+    aspectRatio: "1600/1120",
+    date: "Oct 2026",
   },
   {
     name: "tinyaya-quant-safety",
@@ -47,7 +44,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://github.com/ayastaga/tinyaya-quant-safety",
     mediaType: "video",
     mediaSrc: "/tinyaya.mp4",
-    aspectRatio: "16/9",
+    aspectRatio: "1600/900",
+    date: "Sep 2026",
   },
   {
     name: "parsemd",
@@ -56,7 +54,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://github.com/ayastaga/parsemd",
     mediaType: "video",
     mediaSrc: "/parsemd.mp4",
-    aspectRatio: "10/7",
+    aspectRatio: "1600/1120",
+    date: "Jun 2026",
   },
   {
     name: "vjepa_pipeline",
@@ -65,7 +64,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://github.com/ayastaga/vjepa_pipeline",
     mediaType: "video",
     mediaSrc: "/vjepa.mp4",
-    aspectRatio: "2/1",
+    aspectRatio: "1600/800",
+    date: "Mar 2026",
   },
   {
     name: "Memento",
@@ -74,7 +74,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://devpost.com/software/memento-9j2ny3",
     mediaType: "video",
     mediaSrc: "/memento.mp4",
-    aspectRatio: "16/8",
+    aspectRatio: "640/360",
+    date: "Jan 2026",
   },
   {
     name: "MentaLink",
@@ -83,7 +84,7 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://pitch.com/v/tu20---the-golden-parachutes---mentalink-hq6mvs",
     mediaType: "video",
     mediaSrc: "./Mentalink.mp4",
-    aspectRatio: "16/9",
+    aspectRatio: "1920/1080",
   },
   {
     name: "Nutrasmart",
@@ -91,7 +92,17 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://nutrismart-liard.vercel.app/",
     mediaType: "video",
     mediaSrc: "./Nutrismart.mp4",
-    aspectRatio: "8/5",
+    aspectRatio: "1856/1080",
+    date: "Sep 2025",
+  },
+  {
+    name: "ascii-art",
+    description: "Spinning 3D objects rendered as ASCII in the terminal, written in C",
+    href: "https://github.com/ayastaga/ascii-art",
+    mediaType: "video",
+    mediaSrc: "/ascii-art.mp4",
+    aspectRatio: "1600/900",
+    date: "Aug 2025",
   },
   {
     name: "Ecoute",
@@ -100,7 +111,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://github.com/ayastaga/Ecoute",
     mediaType: "video",
     mediaSrc: "./ecoute.mp4",
-    aspectRatio: "10/7",
+    aspectRatio: "640/360",
+    date: "Jun 2025",
   },
   {
     name: "ServiceSwap",
@@ -108,7 +120,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://devpost.com/software/serviceswap",
     mediaType: "video",
     mediaSrc: "./ServiceSwap.mp4",
-    aspectRatio: "10/7",
+    aspectRatio: "640/360",
+    date: "Jul 2025",
   },
   {
     name: "UTRA",
@@ -117,7 +130,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://devpost.com/software/av-challenge-the-akatsuki",
     mediaType: "image",
     mediaSrc: "/utrahacks.jpg",
-    aspectRatio: "16/8",
+    aspectRatio: "430/573",
+    date: "Jan 2024",
   },
   {
     name: "Oil Prediction Model",
@@ -125,7 +139,18 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://github.com/ayastaga/oil-prediction-model",
     mediaType: "image",
     mediaSrc: "/oilPrediction.png",
-    aspectRatio: "10/7",
+    aspectRatio: "2354/828",
+    date: "Sep 2025",
+  },
+  {
+    name: "signature_detector",
+    description:
+      "Finds handwriting on scanned documents and detects which regions are signatures",
+    href: "https://github.com/ayastaga/signature_detector",
+    mediaType: "video",
+    mediaSrc: "/signature-detector.mp4",
+    aspectRatio: "1600/1120",
+    date: "Sep 2024",
   },
   {
     name: "File Organizer",
@@ -133,28 +158,8 @@ export const featuredProjects: FeaturedProject[] = [
     href: "https://github.com/ayastaga/file-organizer",
     mediaType: "image",
     mediaSrc: "/fileOrganizer.png",
-    aspectRatio: "10/7",
-  },
-];
-
-export const githubProjects: GithubProject[] = [
-  {
-    name: "dshm_analysis",
-    description: "Calculates damping coefficients from CSV data",
-    href: "https://github.com/ayastaga/dshm_analysis",
-    language: "Python",
-  },
-  {
-    name: "signature_detector",
-    description: "Model training for handwritten signature detection",
-    href: "https://github.com/ayastaga/signature_detector",
-    language: "Jupyter Notebook",
-  },
-  {
-    name: "ascii-art",
-    description: "3D ASCII art objects rendered in the terminal",
-    href: "https://github.com/ayastaga/ascii-art",
-    language: "C",
+    aspectRatio: "1256/878",
+    date: "Aug 2024",
   },
 ];
 

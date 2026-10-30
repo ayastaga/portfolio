@@ -60,8 +60,8 @@ export default function RootLayout({
       >
         <GlobalMouseTracker>
           <LenisProvider>
+            <Navbar />
             <TransitionProvider>
-              <Navbar />
               {children}
               <Footer />
             </TransitionProvider>

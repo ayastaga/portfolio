@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -9,10 +9,8 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
 import {
   featuredProjects,
-  githubProjects,
   workExperience,
   type FeaturedProject,
-  type GithubProject,
 } from "@/lib/data";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -65,25 +63,30 @@ function ProjectCard({ project }: { project: FeaturedProject }) {
                   loop
                   playsInline
                   preload="metadata"
-                  className="w-full h-full object-cover scale-[1.02] transition-opacity duration-500 ease-in-out"
+                  className="w-full h-full object-contain transition-opacity duration-500 ease-in-out"
                 />
               ) : (
                 <Image
                   src={project.mediaSrc}
                   alt={project.name}
                   fill
-                  className="object-cover scale-[1.02] transition-opacity duration-500"
-                  sizes="(min-width: 1024px) 45vw, (min-width: 768px) 90vw, 92vw"
+                  className="object-contain transition-opacity duration-500"
+                  sizes="(min-width: 1024px) 31vw, (min-width: 768px) 46vw, 92vw"
                 />
               )}
             </div>
           </div>
-          <div className="flex flex-col justify-between gap-0.5 mt-1 transition-colors duration-300 ease-in-out lg:flex-row">
+          <div className="flex flex-col gap-0.5 mt-1 transition-colors duration-300 ease-in-out">
             <h3 className="text-[17px] text-foreground line-clamp-2">
               {project.description}
             </h3>
-            <h4 className="text-[15px] text-muted-foreground line-clamp-2 transition-colors duration-300 ease-in-out">
-              {project.name}
+            <h4 className="flex items-baseline gap-2 text-[15px] text-muted-foreground transition-colors duration-300 ease-in-out">
+              <span className="line-clamp-1">{project.name}</span>
+              {project.date && (
+                <span className="shrink-0 text-muted-foreground/60">
+                  {project.date}
+                </span>
+              )}
             </h4>
           </div>
         </div>
@@ -92,119 +95,61 @@ function ProjectCard({ project }: { project: FeaturedProject }) {
   );
 }
 
-function GithubProjectCard({ project }: { project: GithubProject }) {
-  const cardRef = useRef<HTMLDivElement>(null);
+// Masonry: 1 column on mobile, 2 on tablet, 3 on desktop
+function useColumnCount() {
+  const [count, setCount] = useState(3);
 
   useEffect(() => {
-    if (!cardRef.current) return;
-    gsap.fromTo(
-      cardRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: cardRef.current,
-          start: "top bottom-=80",
-          toggleActions: "play none none reverse",
-        },
-      },
-    );
+    const update = () =>
+      setCount(
+        window.matchMedia("(min-width: 1024px)").matches
+          ? 3
+          : window.matchMedia("(min-width: 768px)").matches
+            ? 2
+            : 1,
+      );
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
   }, []);
 
-  return (
-    <div ref={cardRef}>
-      <MotionLink
-        href={project.href}
-        target="_blank"
-        className="group block border border-foreground/10 p-5 transition-all duration-300"
-        whileHover={{ y: -4, scale: 1.01 }}
-        transition={{ duration: 0.2, ease: "easeInOut" }}
-      >
-        <div className="flex items-start justify-between gap-3">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-1.5">
-              <h3 className="text-base font-medium text-foreground truncate">
-                {project.name}
-              </h3>
-              <ArrowUpRight
-                size={14}
-                className="shrink-0 opacity-0 group-hover:opacity-100 transition-opacity duration-200"
-              />
-            </div>
-            <p className="text-sm text-muted-foreground line-clamp-2">
-              {project.description}
-            </p>
-          </div>
-          <span className="text-xs text-muted-foreground/70 whitespace-nowrap mt-0.5">
-            {project.language}
-          </span>
-        </div>
-      </MotionLink>
-    </div>
-  );
+  return count;
 }
 
+// Height of a card relative to its width, used to keep columns balanced
+const relativeHeight = (aspectRatio: string) => {
+  const [w, h] = aspectRatio.split("/").map(Number);
+  return h / w;
+};
+
 function FeaturedProjectsGrid() {
-  const leftColumn = featuredProjects.filter((_, i) => i % 2 === 0);
-  const rightColumn = featuredProjects.filter((_, i) => i % 2 === 1);
+  const columnCount = useColumnCount();
+
+  // Place each project in the currently shortest column, preserving order
+  const columns: FeaturedProject[][] = Array.from(
+    { length: columnCount },
+    () => [],
+  );
+  const heights = new Array(columnCount).fill(0);
+  featuredProjects.forEach((project) => {
+    const shortest = heights.indexOf(Math.min(...heights));
+    columns[shortest].push(project);
+    heights[shortest] += relativeHeight(project.aspectRatio);
+  });
 
   return (
     <section className="my-12">
       <div className="px-4 md:px-8 lg:px-15 mx-auto">
-        <div className="grid grid-cols-1 gap-6 transition-all duration-300 ease-in-out lg:grid-cols-2">
-          <div className="flex flex-col gap-6">
-            {leftColumn.map((project) => (
-              <ProjectCard key={project.name} project={project} />
-            ))}
-          </div>
-          <div className="flex flex-col gap-6">
-            {rightColumn.map((project) => (
-              <ProjectCard key={project.name} project={project} />
-            ))}
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function GithubProjectsSection() {
-  const titleRef = useRef<HTMLHeadingElement>(null);
-
-  useEffect(() => {
-    if (!titleRef.current) return;
-    gsap.fromTo(
-      titleRef.current,
-      { opacity: 0, y: 30 },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: titleRef.current,
-          start: "top bottom-=50",
-          toggleActions: "play none none reverse",
-        },
-      },
-    );
-  }, []);
-
-  return (
-    <section className="mb-12">
-      <div className="px-4 md:px-8 lg:px-15 mx-auto">
-        <h2
-          ref={titleRef}
-          className="text-2xl font-ppmontreal mb-6 text-muted-foreground"
+        <div
+          className="grid gap-6"
+          style={{ gridTemplateColumns: `repeat(${columnCount}, minmax(0, 1fr))` }}
         >
-          More on GitHub
-        </h2>
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {githubProjects.map((project) => (
-            <GithubProjectCard key={project.name} project={project} />
+          {columns.map((column, i) => (
+            <div key={i} className="flex flex-col gap-6">
+              {column.map((project) => (
+                <ProjectCard key={project.name} project={project} />
+              ))}
+            </div>
           ))}
         </div>
       </div>
@@ -352,7 +297,6 @@ export default function WorkPage() {
       </div>
       <WorkExperienceTable />
       <FeaturedProjectsGrid />
-      <GithubProjectsSection />
     </div>
   );
 }
